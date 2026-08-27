@@ -1,0 +1,69 @@
+name: Publish THE BLACK
+
+on:
+  push:
+    branches: [claw]
+    paths-ignore:
+      - "shipfront-the-black/**"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [publish-the-black]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this user site
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout THE BLACK source
+        uses: actions/checkout@v4
+        with:
+          repository: davidtphung/shipfront-the-black
+          ref: claw
+          path: src
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore crate-os stills if missing
+        working-directory: src
+        run: |
+          mkdir -p public/media
+          base="https://raw.githubusercontent.com/davidtphung/shipfront-crate-os/main/public/media"
+          for f in shelves.jpg parcels.jpg downtown-la.jpg route-nodes.jpg; do
+            if [ ! -s "public/media/$f" ]; then
+              curl -fsSL "$base/$f" -o "public/media/$f"
+            fi
+          done
+
+      - name: Build
+        working-directory: src
+        env:
+          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: /shipfront-the-black
+        run: |
+          npm install
+          npm run build
+
+      - name: Publish into /shipfront-the-black
+        run: |
+          rm -rf site/shipfront-the-black
+          mkdir -p site/shipfront-the-black
+          cp -a src/out/. site/shipfront-the-black/
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shipfront-the-black
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Publish shipfront-the-black static export"
+            git push
+          fi
