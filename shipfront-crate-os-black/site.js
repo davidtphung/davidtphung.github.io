@@ -1,3 +1,4 @@
+
 (function () {
   var steps = [
     { label: "STORE", body: "Integrate sales channels", live: "ORDER SIGNAL RECEIVED" },
@@ -16,6 +17,7 @@
     "We ship",
     "Happy Customers!"
   ];
+
   function setNet(i) {
     var live = document.getElementById("net-live");
     var label = document.getElementById("net-label");
@@ -34,11 +36,13 @@
       route.setAttribute("stroke-dasharray", p + " " + (1 - p));
     }
   }
+
   document.querySelectorAll("[data-net]").forEach(function (el) {
     el.addEventListener("click", function () {
       setNet(Number(el.getAttribute("data-net")));
     });
   });
+
   var net = document.getElementById("network");
   if (net) {
     window.addEventListener("scroll", function () {
@@ -49,6 +53,7 @@
       setNet(Math.min(steps.length - 1, Math.floor((scrolled / total) * steps.length)));
     }, { passive: true });
   }
+
   function setProcess(i) {
     var title = document.getElementById("process-active");
     if (!title) return;
@@ -69,6 +74,7 @@
       setProcess(Number(el.getAttribute("data-process")));
     });
   });
+
   var form = document.getElementById("quote-form");
   if (form) {
     function show(id, on) { document.getElementById(id).style.display = on ? "block" : "none"; }
@@ -90,9 +96,6 @@
       document.getElementById("out-name").textContent = name;
       document.getElementById("out-email").textContent = email;
       document.getElementById("out-phone").textContent = phone;
-      document.getElementById("out-company").textContent = val("company") || "Not provided";
-      document.getElementById("out-website").textContent = val("website") || "Not provided";
-      document.getElementById("out-message").textContent = val("message") || "Not provided";
       document.getElementById("preview-empty").style.display = "none";
       document.getElementById("preview-list").style.display = "block";
     });

@@ -61,31 +61,16 @@
         <input id="phone" name="phone" type="tel" autocomplete="tel" required/>
       </div>
       <p class="err" id="phone-error">Phone is required.</p>
-      <div class="field">
-        <label for="company">Company Name</label>
-        <input id="company" name="company" autocomplete="organization"/>
-      </div>
-      <div class="field">
-        <label for="website">Website</label>
-        <input id="website" name="website" type="url" placeholder="https://"/>
-      </div>
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-      </div>
       <button class="submit" type="submit">Preview quote request</button>
       <p class="hint">Preview only. This form does not send a request.</p>
     </form>
     <aside class="card pad">
       <p class="mono">Preview</p>
-      <p id="preview-empty" class="lede">Required fields are Name, Email, and Phone. Company Name, Website, and Message are optional. Review your details here before you copy them to email info@myshipfront.com.</p>
+      <p id="preview-empty" class="lede">Required: Name, Email, Phone. Review your details here before you copy them to email info@myshipfront.com.</p>
       <dl class="preview-list" id="preview-list">
         <dt>Name</dt><dd id="out-name"></dd>
         <dt>Email</dt><dd id="out-email"></dd>
         <dt>Phone</dt><dd id="out-phone"></dd>
-        <dt>Company Name</dt><dd id="out-company"></dd>
-        <dt>Website</dt><dd id="out-website"></dd>
-        <dt>Message</dt><dd id="out-message"></dd>
       </dl>
     </aside>
   </div>
