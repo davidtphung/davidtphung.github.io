@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shipfront</title>
-    <meta name="description" content="You Sell. We Ship. A person at Shipfront replies. The warehouse is at 1933 S. Broadway." />
+    <title>Get a Quote | Shipfront</title>
+    <meta name="description" content="We'll use this to quote you. A person replies." />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/shipfront-studio/favicon.svg" />
@@ -49,34 +49,29 @@
         </div>
       </header>
       <main class="site-main" id="main" tabindex="-1">
-        <section class="hero" aria-labelledby="hero-title">
+        <div class="page-head"><div class="container"><h1 class="page-head__title">Get a Quote</h1></div></div>
+        <div class="quote-body">
           <div class="container">
-            <h1 class="hero__title" id="hero-title">You Sell.<br />We Ship.</h1>
-            <p class="hero__trust">A person at Shipfront replies. The warehouse is at 1933 S. Broadway.</p>
-            <div class="hero__cta"><a class="cta" href="/shipfront-studio/quote/">Get a Quote</a></div>
-          </div>
-        </section>
-        <section class="still-section" aria-label="Dock · Racking, 1933 S. Broadway">
-          <div class="container">
-            <figure class="still">
-              <div class="still__frame">
-                <img class="still__img" src="/shipfront-preview/studio/racking.jpg" width="1600" height="1067" alt="A long warehouse aisle lined with steel racking and palletized goods at 1933 S. Broadway." />
+            <form class="form" action="mailto:info@myshipfront.com" method="post" enctype="text/plain">
+              <div class="form__fields">
+                <div class="field">
+                  <label class="field__label" for="quote-name">Name <span class="field__required">(required)</span></label>
+                  <input class="input" id="quote-name" name="name" required autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="quote-email">Email <span class="field__required">(required)</span></label>
+                  <input class="input" id="quote-email" name="email" type="email" required autocomplete="email" inputmode="email" />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="quote-company">Company <span class="field__required">(required)</span></label>
+                  <input class="input" id="quote-company" name="company" required autocomplete="organization" />
+                </div>
               </div>
-              <figcaption class="still__caption">Dock · Racking, 1933 S. Broadway</figcaption>
-            </figure>
+              <p class="form__disclosure">We'll use this to quote you. A person replies.</p>
+              <div><button class="cta" type="submit">Send</button></div>
+            </form>
           </div>
-        </section>
-        <section class="works-section" id="why-shipfront" tabindex="-1" aria-labelledby="props-title">
-          <div class="container">
-            <h2 class="works-section__title" id="props-title">Why Shipfront</h2>
-            <ul class="works">
-              <li class="card work"><h3 class="work__title">Warehousing</h3><p class="work__caption">Space and handling at 1933 S. Broadway.</p></li>
-              <li class="card work"><h3 class="work__title">Fulfillment</h3><p class="work__caption">Inbound, kitting, storage, outbound.</p></li>
-              <li class="card work"><h3 class="work__title">eCommerce Integrations</h3><p class="work__caption">The stack you already sell on.</p></li>
-              <li class="card work"><h3 class="work__title">Location</h3><p class="work__caption">Downtown Los Angeles. The Reef, 1933 S. Broadway.</p></li>
-            </ul>
-          </div>
-        </section>
+        </div>
       </main>
       <footer class="site-footer">
         <div class="container site-footer__inner">
