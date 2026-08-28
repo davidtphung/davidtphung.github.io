@@ -219,7 +219,25 @@
   <div class="quote-inner">
     <h2>Fast &amp; Easy Quotes</h2>
     <p class="lede">Please take a moment to give us some information. We have expert agents standing by to take care of your logistics needs.</p>
-    <div class="row"><a class="btn" href="/shipfront-crate-os-black/get-a-quote/">Get a Quote</a></div>
+    <form class="card quote-form" id="quote-form" novalidate>
+      <div class="field">
+        <label for="name">Name *</label>
+        <input id="name" name="name" autocomplete="name" required/>
+      </div>
+      <p class="err" id="name-error">Name is required.</p>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required/>
+      </div>
+      <p class="err" id="email-error">Enter a valid email.</p>
+      <div class="field">
+        <label for="phone">Phone *</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required/>
+      </div>
+      <p class="err" id="phone-error">Phone is required.</p>
+      <p class="req-line">Required: Name, Email, Phone.</p>
+      <button class="submit" type="submit">Submit</button>
+    </form>
   </div>
 </section>
 </main>
