@@ -88,16 +88,6 @@
       show("name-error", !name);
       show("email-error", !email || !emailOk);
       show("phone-error", !phone);
-      if (!name || !email || !emailOk || !phone) {
-        document.getElementById("preview-list").style.display = "none";
-        document.getElementById("preview-empty").style.display = "block";
-        return;
-      }
-      document.getElementById("out-name").textContent = name;
-      document.getElementById("out-email").textContent = email;
-      document.getElementById("out-phone").textContent = phone;
-      document.getElementById("preview-empty").style.display = "none";
-      document.getElementById("preview-list").style.display = "block";
     });
   }
 })();

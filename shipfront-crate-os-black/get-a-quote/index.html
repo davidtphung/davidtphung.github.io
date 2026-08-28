@@ -44,8 +44,7 @@
 </svg>
   <h1>Fast &amp; Easy Quotes</h1>
   <p class="lede">Please take a moment to give us some information. We have expert agents standing by to take care of your logistics needs.</p>
-  <div class="desk">
-    <form class="card" id="quote-form" novalidate>
+  <form class="card quote-form" id="quote-form" novalidate>
       <div class="field">
         <label for="name">Name *</label>
         <input id="name" name="name" autocomplete="name" required/>
@@ -61,19 +60,9 @@
         <input id="phone" name="phone" type="tel" autocomplete="tel" required/>
       </div>
       <p class="err" id="phone-error">Phone is required.</p>
-      <button class="submit" type="submit">Preview quote request</button>
-      <p class="hint">Preview only. This form does not send a request.</p>
+      <p class="req-line">Required: Name, Email, Phone.</p>
+      <button class="submit" type="submit">Submit</button>
     </form>
-    <aside class="card pad">
-      <p class="mono">Preview</p>
-      <p id="preview-empty" class="lede">Required: Name, Email, Phone. Review your details here before you copy them to email info@myshipfront.com.</p>
-      <dl class="preview-list" id="preview-list">
-        <dt>Name</dt><dd id="out-name"></dd>
-        <dt>Email</dt><dd id="out-email"></dd>
-        <dt>Phone</dt><dd id="out-phone"></dd>
-      </dl>
-    </aside>
-  </div>
 </main>
 <footer>
   <div class="rule"></div>
