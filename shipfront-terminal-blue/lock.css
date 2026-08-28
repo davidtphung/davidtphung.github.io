@@ -1,0 +1,110 @@
+/* Friday Terminal lock: black, white, cube, one accent. */
+:root {
+  --ground: #000000;
+  --type: #ffffff;
+  --accent: #FF6A00;
+  --cta-label: #000000;
+  --hair: rgba(255, 255, 255, 0.22);
+}
+
+html,
+body {
+  margin: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+a { color: inherit; }
+button, input { font: inherit; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+header { border-bottom: 1px solid var(--hair); }
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+}
+.mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: #fff;
+}
+.wordmark__lock { display: inline-flex; align-items: center; gap: 8px; }
+.wordmark__name { font-weight: 700; letter-spacing: 0.12em; font-size: 14px; }
+.wordmark__bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #FF6A00;
+  margin-block-start: 4px;
+}
+.cube { display: block; width: 24px; height: 26px; flex: none; }
+nav { display: flex; align-items: center; gap: 20px; }
+nav a {
+  text-decoration: none;
+  font-size: 14px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.cta {
+  background: #FF6A00;
+  color: #000000;
+  text-decoration: none;
+  border: 0;
+  padding: 0 24px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cta:hover { opacity: 0.85; }
+.hero { padding: 80px 0 64px; }
+.hero-image, .band-image {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+h1 { font-size: clamp(40px, 8vw, 72px); line-height: 0.92; margin: 0 0 20px; }
+h2 { font-size: clamp(20px, 3vw, 30px); margin: 0 0 12px; }
+h3 { font-size: 1.25rem; margin: 0 0 12px; }
+.lead { font-size: 18px; max-width: 36em; margin: 0 0 20px; line-height: 1.6; }
+.band { margin: 0 0 48px; }
+.page { padding: 64px 0 96px; }
+label { display: block; margin: 0 0 8px; }
+input[type=text],
+input[type=email] {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--hair);
+  background: #000;
+  color: #fff;
+  border-radius: 0;
+  margin: 0 0 20px;
+}
+.card {
+  border: 1px solid var(--hair);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 28px 0 48px;
+  font-size: 13px;
+  text-align: center;
+}
