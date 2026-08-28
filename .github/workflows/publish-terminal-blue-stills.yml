@@ -1,0 +1,45 @@
+name: Publish Terminal lock stills
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [publish-terminal-blue]
+
+permissions:
+  contents: write
+
+jobs:
+  stills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout lock sit stills
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: davidtphung/shipfront-terminal-blue
+          ref: gh-pages
+          path: src-stills
+      - name: Copy stills into the live folder
+        run: |
+          mkdir -p shipfront-terminal-blue
+          copied=0
+          for f in aisle-2400.jpg aisle-dark.jpg warehouse-team.jpg loading-dock.jpg; do
+            if [ -s "src-stills/$f" ]; then
+              cp "src-stills/$f" "shipfront-terminal-blue/$f"
+              copied=1
+            fi
+          done
+          if [ "$copied" != 1 ]; then
+            echo "Lock repo stills were not readable; skip."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shipfront-terminal-blue/*.jpg
+          if git diff --cached --quiet; then
+            echo "No stills changes"
+          else
+            git commit -m "Add Friday Terminal lock stills to /shipfront-terminal-blue/"
+            git push
+          fi
