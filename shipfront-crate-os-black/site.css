@@ -150,12 +150,8 @@ button.submit {
   width: 100%; min-height: 44px; border: 0; border-radius: 12px;
   background: #FF6A00; color: #000; font-size: 15px; font-weight: 500; cursor: pointer;
 }
-.hint { margin-top: 12px; color: #9a9a9a; font-size: 13px; }
-.desk { display: grid; gap: 32px; margin-top: 40px; }
-@media (min-width: 1024px) { .desk { grid-template-columns: 1.1fr 0.9fr; } }
-.preview-list { display: none; margin-top: 24px; }
-.preview-list dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #9a9a9a; }
-.preview-list dd { margin: 4px 0 16px; }
+.req-line { margin: 0 0 20px; color: #9a9a9a; font-size: 13px; }
+.quote-form { position: relative; max-width: 36rem; margin-top: 40px; }
 .flow-dash { stroke-dasharray: 5 9; animation: flow 16s linear infinite; }
 .node-breathe { animation: breathe 5.5s ease-in-out infinite; }
 @keyframes flow { to { stroke-dashoffset: -220; } }
