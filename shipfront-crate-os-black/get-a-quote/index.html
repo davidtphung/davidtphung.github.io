@@ -1,1 +1,202 @@
-<!DOCTYPE html><html lang="en" class="h-full antialiased"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/shipfront-crate-os-black/_next/static/chunks/1hap88rn_ge85.css" data-precedence="next"/><meta name="theme-color" content="#000000"/><title>Get a Quote - Shipfront</title><link rel="icon" href="/shipfront-crate-os-black/icon.svg" type="image/svg+xml"/></head><body class="min-h-full bg-[#000000] font-sans text-[#f5f5f5]"><header class="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center bg-[#000000] px-3 pt-3"><div class="pointer-events-auto flex h-16 w-full max-w-[1440px] items-center justify-between rounded-[18px] border border-[#222] bg-[#000000] px-3"><a href="/shipfront-crate-os-black/" aria-label="Shipfront home"><span translate="no" class="font-grotesk text-[24px] font-bold tracking-[-0.04em] text-[#FF6A00]">SHIPFRONT</span></a><nav class="hidden items-center gap-1 lg:flex"><a class="rounded-[10px] px-3 py-2 text-[14px] text-[#d4d4d4]" href="/shipfront-crate-os-black/">Home</a><a class="rounded-[10px] px-3 py-2 text-[14px] text-[#d4d4d4]" href="/shipfront-crate-os-black/contact/">Contact</a></nav></div></header><main id="main" class="bg-[#000000]"><section class="mx-auto max-w-[1440px] px-5 pt-32 pb-20 sm:px-8"><h1 class="max-w-[12ch] text-[42px] leading-[1.02] font-semibold tracking-[-0.05em] text-[#f5f5f5] sm:text-[64px]">Fast &amp; Easy Quotes</h1><p class="mt-5 max-w-[42ch] text-[17px] leading-relaxed text-[#9a9a9a]">Please take a moment to give us some information. We have expert agents standing by to take care of your logistics needs.</p><p class="mt-8 text-[16px] text-[#d4d4d4]">Email <a class="text-[#FF6A00]" href="mailto:info@myshipfront.com">info@myshipfront.com</a> with your name, email, phone, and optional company, website, and message.</p></section></main><footer class="bg-[#000000] text-[#f5f5f5]"><div class="border-t border-[#222]"><p class="mx-auto max-w-[1440px] px-5 py-5 text-[12px] text-[#9a9a9a]">© 2026 Shipfront</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Get a Quote - Shipfront</title>
+<meta name="description" content="Please take a moment to give us some information. We have expert agents standing by to take care of your logistics needs."/>
+<meta name="theme-color" content="#000000"/>
+<link rel="icon" href="/shipfront-crate-os-black/icon.svg" type="image/svg+xml"/>
+<style>
+  :root { --bg:#000000; --ink:#f5f5f5; --muted:#9a9a9a; --soft:#d4d4d4; --line:#222222; --orange:#FF6A00; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: #000000; color: var(--ink); font-family: ui-sans-serif, system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  header { position: fixed; inset: 0 0 auto 0; z-index: 40; display: flex; justify-content: center; background: #000000; padding: 12px 12px 0; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; max-width: 1440px; height: 64px; border: 1px solid #222; background: #000000; border-radius: 18px; padding: 0 12px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; }
+  .word { font-weight: 700; letter-spacing: -0.04em; font-size: 24px; color: #FF6A00; }
+  nav.primary { display: flex; align-items: center; gap: 4px; }
+  nav.primary a { border-radius: 10px; padding: 8px 12px; font-size: 14px; font-weight: 500; color: #d4d4d4; }
+  nav.primary a[aria-current="page"], nav.primary a:hover { color: #f5f5f5; }
+  .cta { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border-radius: 12px; background: #FF6A00; color: #000; padding: 0 20px; font-size: 15px; font-weight: 500; }
+  main { background: #000000; padding: 128px 20px 80px; }
+  .wrap { max-width: 1440px; margin: 0 auto; }
+  h1 { max-width: 12ch; margin: 24px 0 0; font-size: clamp(42px, 6vw, 64px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 600; }
+  .lead { margin-top: 20px; max-width: 42ch; color: #9a9a9a; font-size: 17px; line-height: 1.6; }
+  .desk { display: grid; gap: 32px; margin-top: 40px; }
+  @media (min-width: 1024px) { .desk { grid-template-columns: 1.1fr 0.9fr; } }
+  .card { border: 1px solid #222; background: #000000; border-radius: 20px; padding: 32px; }
+  label { display: grid; gap: 8px; margin-bottom: 20px; font-size: 14px; color: #f5f5f5; }
+  .req { color: #FF6A00; }
+  input, textarea { width: 100%; min-height: 44px; border: 1px solid #222; background: #000000; color: #f5f5f5; border-radius: 10px; padding: 10px 12px; font: inherit; }
+  textarea { min-height: 112px; resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: #FF6A00; }
+  .err { display: none; margin: -12px 0 16px; color: #FF6A00; font-size: 13px; }
+  button { width: 100%; min-height: 44px; border: 0; border-radius: 12px; background: #FF6A00; color: #000; font-size: 15px; font-weight: 500; cursor: pointer; }
+  .hint { margin-top: 12px; color: #9a9a9a; font-size: 13px; }
+  .preview-kicker { margin: 0; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9a9a9a; }
+  .preview-empty { margin-top: 24px; color: #9a9a9a; font-size: 16px; line-height: 1.6; }
+  .preview-list { display: none; margin-top: 24px; }
+  .preview-list dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #9a9a9a; }
+  .preview-list dd { margin: 4px 0 16px; color: #f5f5f5; }
+  footer { background: #000000; color: #f5f5f5; }
+  .rule { height: 1px; background: #222; }
+  .foot { max-width: 1440px; margin: 0 auto; display: grid; gap: 40px; padding: 64px 20px; }
+  @media (min-width: 1024px) { .foot { grid-template-columns: 1.2fr 1fr 1fr; } }
+  .col-title { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a9a9a; }
+  .foot ul { list-style: none; margin: 16px 0 0; padding: 0; }
+  .foot li { margin: 8px 0; }
+  .foot a:hover { color: #f5f5f5; }
+  address { font-style: normal; margin-top: 16px; line-height: 1.6; }
+  .mail { display: inline-block; margin-top: 12px; color: #FF6A00; }
+  .legal { border-top: 1px solid #222; }
+  .legal p { max-width: 1440px; margin: 0 auto; padding: 20px; color: #9a9a9a; font-size: 12px; }
+  @media (max-width: 640px) { nav.primary { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="/shipfront-crate-os-black/" aria-label="Shipfront home">
+      <svg viewBox="0 0 32 36" width="18" height="20" fill="none" aria-hidden="true">
+        <g stroke="#FF6A00" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4">
+          <path d="M16 3.2 L28.4 10.4 L16 17.6 L3.6 10.4 Z" fill="#000000"/>
+          <path d="M3.6 10.4 L16 17.6 L16 32.8 L3.6 25.6 Z" fill="#000000"/>
+          <path d="M28.4 10.4 L16 17.6 L16 32.8 L28.4 25.6 Z" fill="#000000"/>
+        </g>
+      </svg>
+      <span class="word" translate="no">SHIPFRONT</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="/shipfront-crate-os-black/">Home</a>
+      <a href="/shipfront-crate-os-black/contact/">Contact</a>
+    </nav>
+    <a class="cta" href="/shipfront-crate-os-black/get-a-quote/" aria-current="page">Get a Quote</a>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <svg viewBox="0 0 32 36" width="40" height="48" fill="none" role="img">
+      <title>Shipfront cube</title>
+      <g stroke="#FF6A00" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4">
+        <path d="M16 3.2 L28.4 10.4 L16 17.6 L3.6 10.4 Z" fill="#000000"/>
+        <path d="M3.6 10.4 L16 17.6 L16 32.8 L3.6 25.6 Z" fill="#000000"/>
+        <path d="M28.4 10.4 L16 17.6 L16 32.8 L28.4 25.6 Z" fill="#000000"/>
+      </g>
+    </svg>
+    <h1>Fast &amp; Easy Quotes</h1>
+    <p class="lead">Please take a moment to give us some information. We have expert agents standing by to take care of your logistics needs.</p>
+    <div class="desk">
+      <form class="card" id="quote-form" novalidate>
+        <label for="name">Name <span class="req">*</span>
+          <input id="name" name="name" autocomplete="name" required/>
+        </label>
+        <p class="err" id="name-error">Name is required.</p>
+        <label for="email">Email <span class="req">*</span>
+          <input id="email" name="email" type="email" autocomplete="email" required/>
+        </label>
+        <p class="err" id="email-error">Enter a valid email.</p>
+        <label for="phone">Phone <span class="req">*</span>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required/>
+        </label>
+        <p class="err" id="phone-error">Phone is required.</p>
+        <label for="company">Company Name
+          <input id="company" name="company" autocomplete="organization"/>
+        </label>
+        <label for="website">Website
+          <input id="website" name="website" type="url" placeholder="https://"/>
+        </label>
+        <label for="message">Message
+          <textarea id="message" name="message" rows="5"></textarea>
+        </label>
+        <button type="submit">Preview quote request</button>
+        <p class="hint">Preview only. This form does not send a request.</p>
+      </form>
+      <aside class="card">
+        <p class="preview-kicker">Preview</p>
+        <p class="preview-empty" id="preview-empty">Required fields are Name, Email, and Phone. Company Name, Website, and Message are optional. Review your details here before you copy them to email info@myshipfront.com.</p>
+        <dl class="preview-list" id="preview-list">
+          <dt>Name</dt><dd id="out-name"></dd>
+          <dt>Email</dt><dd id="out-email"></dd>
+          <dt>Phone</dt><dd id="out-phone"></dd>
+          <dt>Company Name</dt><dd id="out-company"></dd>
+          <dt>Website</dt><dd id="out-website"></dd>
+          <dt>Message</dt><dd id="out-message"></dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="foot">
+    <div>
+      <span class="brand">
+        <svg viewBox="0 0 32 36" width="18" height="20" fill="none" aria-hidden="true">
+          <g stroke="#FF6A00" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4">
+            <path d="M16 3.2 L28.4 10.4 L16 17.6 L3.6 10.4 Z" fill="#000000"/>
+            <path d="M3.6 10.4 L16 17.6 L16 32.8 L3.6 25.6 Z" fill="#000000"/>
+            <path d="M28.4 10.4 L16 17.6 L16 32.8 L28.4 25.6 Z" fill="#000000"/>
+          </g>
+        </svg>
+        <span class="word" translate="no">SHIPFRONT</span>
+      </span>
+      <p style="margin-top:16px;max-width:24rem;color:#9a9a9a;font-size:14px;line-height:1.6">1933 S. Broadway, Los Angeles CA 90007 | info@myshipfront.com</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="col-title">Pages</p>
+      <ul>
+        <li><a href="/shipfront-crate-os-black/">Home</a></li>
+        <li><a href="/shipfront-crate-os-black/get-a-quote/">Get a Quote</a></li>
+        <li><a href="/shipfront-crate-os-black/contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="col-title">Visit</p>
+      <address>
+        Shipfront<br/>1933 S. Broadway<br/>Los Angeles, CA 90007<br/>
+        <a class="mail" href="mailto:info@myshipfront.com">info@myshipfront.com</a>
+      </address>
+    </div>
+  </div>
+  <div class="legal">
+    <p>Built by David T Phung | © 2026 Shipfront</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var form = document.getElementById("quote-form");
+  function show(id, on) {
+    document.getElementById(id).style.display = on ? "block" : "none";
+  }
+  function val(id) {
+    return document.getElementById(id).value.trim();
+  }
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var name = val("name");
+    var email = val("email");
+    var phone = val("phone");
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    show("name-error", !name);
+    show("email-error", !email || !emailOk);
+    show("phone-error", !phone);
+    if (!name || !email || !emailOk || !phone) {
+      document.getElementById("preview-list").style.display = "none";
+      document.getElementById("preview-empty").style.display = "block";
+      return;
+    }
+    document.getElementById("out-name").textContent = name;
+    document.getElementById("out-email").textContent = email;
+    document.getElementById("out-phone").textContent = phone;
+    document.getElementById("out-company").textContent = val("company") || "Not provided";
+    document.getElementById("out-website").textContent = val("website") || "Not provided";
+    document.getElementById("out-message").textContent = val("message") || "Not provided";
+    document.getElementById("preview-empty").style.display = "none";
+    document.getElementById("preview-list").style.display = "block";
+  });
+})();
+</script>
+</body>
+</html>
