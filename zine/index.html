@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zine · Field Notes</title>
+  <style>
+    :root { --paper:#f3eee4; --ink:#231f1a; --kelp:#2f4a3d; --rule:#d3c7b4; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 1.5rem)); margin: 0 auto; }
+    header.mast { padding: 2.5rem 0 1.25rem; }
+    .kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5c564c; }
+    h1 { font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.04em; margin: .4rem 0 0; }
+    .lead { max-width: 40rem; line-height: 1.45; color: #3d3832; }
+    .folio { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; background: #11110f; border: 1px solid var(--rule); padding: 1rem; min-height: min(78vh, 920px); }
+    .folio.is-reader { flex-direction: row; justify-content: center; align-items: center; gap: 0; }
+    .folio.is-reader .leaf { display: none; }
+    .folio.is-reader .leaf.is-on { display: block; }
+    .leaf { margin: 0; background: #000; box-shadow: 0 18px 40px rgb(0 0 0 / .35); }
+    .leaf img { display: block; width: 100%; height: auto; max-height: min(74vh, 860px); object-fit: contain; }
+    .folio.is-reader.is-single .leaf { width: min(720px, 100%); }
+    .folio.is-reader.is-spread .leaf { width: min(520px, 50%); }
+    .controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0 2rem; }
+    button { font: 600 12px/1 Inter, sans-serif; background: var(--kelp); color: var(--paper); border: 0; padding: .65rem .95rem; cursor: pointer; }
+    button:disabled { opacity: .38; cursor: default; }
+    .ind { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #5c564c; }
+    .after { padding-bottom: 3rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="wrap mast">
+      <p class="kicker">OPEN WATER / Field Notes Vol. 01</p>
+      <h1>Issue 001</h1>
+      <p class="lead">Nine plates from Field Notes Issue 001, Open Water. Cover first, then two-page spreads on a wide screen. Previous / next, arrow keys, or a swipe turns the page. Every plate is an image in this HTML, so the issue stays visible if JavaScript does not run.</p>
+    </header>
+    <div class="wrap" id="zine-stage">
+      <div class="folio" id="folio">
+        <figure class="leaf" data-page="1"><img src="/zine/page-01.jpg" width="1024" height="1536" alt="Open Water cover: a surfer in the barrel of a turquoise wave, Field Notes Issue 001 / Vital Lyfe." /></figure>
+        <figure class="leaf" data-page="2"><img src="/zine/page-02.jpg" width="1400" height="933" alt="Manifesto spread: aerial boat wake and Freedom to Go Further." /></figure>
+        <figure class="leaf" data-page="3"><img src="/zine/page-03.jpg" width="1400" height="933" alt="Tideline spread: The world is 71% water. Access changes the other 29%." /></figure>
+        <figure class="leaf" data-page="4"><img src="/zine/page-04.jpg" width="1400" height="933" alt="The Problem and The Unit: Range is a water problem, Access specs." /></figure>
+        <figure class="leaf" data-page="5"><img src="/zine/page-05.jpg" width="1400" height="933" alt="Centerfold: Intelligence in the flow, five-stage treatment path." /></figure>
+        <figure class="leaf" data-page="6"><img src="/zine/page-06.jpg" width="1400" height="933" alt="Partnership plate: The Waterman, John John Florence x Vital Lyfe." /></figure>
+        <figure class="leaf" data-page="7"><img src="/zine/page-07.jpg" width="1400" height="933" alt="Operation and Field Craft: Place hose. Press start. Hydrate." /></figure>
+        <figure class="leaf" data-page="8"><img src="/zine/page-08.jpg" width="1400" height="933" alt="From the Frontier journal index and Reserve the Future pre-order plate." /></figure>
+        <figure class="leaf" data-page="9"><img src="/zine/page-09.jpg" width="1024" height="1536" alt="Close plate: Vital Lyfe, Freedom to Go Further, Open Water Issue 001." /></figure>
+      </div>
+      <div class="controls">
+        <button type="button" id="prev">Previous</button>
+        <p class="ind" id="ind" aria-live="polite">1 / 9</p>
+        <button type="button" id="next">Next</button>
+      </div>
+    </div>
+    <p class="wrap after"><a href="/">Back</a></p>
+  </main>
+  <script>
+    (function () {
+      var folio = document.getElementById("folio");
+      var leaves = Array.prototype.slice.call(folio.querySelectorAll(".leaf"));
+      var wide = window.matchMedia("(min-width: 860px)");
+      var index = 0;
+      var touch = null;
+      function views() {
+        if (!wide.matches) return leaves.map(function (_, i) { return [i]; });
+        var out = [[0]];
+        for (var i = 1; i < leaves.length; i += 2) out.push(i + 1 < leaves.length ? [i, i + 1] : [i]);
+        return out;
+      }
+      function render() {
+        var v = views();
+        if (index > v.length - 1) index = v.length - 1;
+        var cur = v[index] || [0];
+        folio.classList.add("is-reader");
+        folio.classList.toggle("is-spread", cur.length > 1);
+        folio.classList.toggle("is-single", cur.length === 1);
+        leaves.forEach(function (leaf, i) { leaf.classList.toggle("is-on", cur.indexOf(i) !== -1); });
+        var a = cur[0] + 1, b = cur[cur.length - 1] + 1;
+        document.getElementById("ind").textContent = a === b ? a + " / 9" : a + "–" + b + " / 9";
+        document.getElementById("prev").disabled = index === 0;
+        document.getElementById("next").disabled = index === v.length - 1;
+      }
+      function go(n) { index = Math.max(0, Math.min(views().length - 1, n)); render(); }
+      document.getElementById("prev").onclick = function () { go(index - 1); };
+      document.getElementById("next").onclick = function () { go(index + 1); };
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(index + 1); }
+        if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(index - 1); }
+        if (e.key === "Home") go(0);
+        if (e.key === "End") go(views().length - 1);
+      });
+      var stage = document.getElementById("zine-stage");
+      stage.addEventListener("touchstart", function (e) {
+        var p = e.changedTouches[0]; touch = { x: p.clientX, t: Date.now() };
+      }, { passive: true });
+      stage.addEventListener("touchend", function (e) {
+        if (!touch) return;
+        var p = e.changedTouches[0];
+        var dx = p.clientX - touch.x, dt = Date.now() - touch.t; touch = null;
+        if (dt > 800 || Math.abs(dx) < 48) return;
+        go(dx < 0 ? index + 1 : index - 1);
+      });
+      wide.addEventListener("change", render);
+      render();
+    })();
+  </script>
+</body>
+</html>
