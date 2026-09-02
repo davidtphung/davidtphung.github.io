@@ -1,1 +1,1 @@
-PLACEHOLDER_WILL_FAIL_IF_TOO_SMALL
+import{StrictMode as e,useEffect as t,useRef as n,useState as r}from"react";import{createRoot as i}from"react-dom/client";import{jsx as a,jsxs as o}from"react/jsx-runtime";import{Slot as s}from"@radix-ui/react-slot";import*as c from"@radix-ui/react-dialog";
