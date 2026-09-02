@@ -1,0 +1,1 @@
+import{useEffect as e,useState as t}from"react";function n(n){let[r,i]=t(!1);return e(()=>{let e=window.matchMedia(n),t=()=>i(e.matches);return t(),e.addEventListener(`change`,t),()=>e.removeEventListener(`change`,t)},[n]),r}function r(){return n(`(prefers-reduced-motion: reduce)`)}export{r as t};
